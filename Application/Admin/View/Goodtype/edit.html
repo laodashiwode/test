@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" href="__CSS__/uploads.css">
+<script src="__JS__/jquery.js"></script <!-- jQuery -->
+
+<include file="Common:main"/>
+<body>
+
+
+<!-- Header starts -->
+<include file="Common:top"/>
+<!-- Header ends -->
+
+<!-- Main content starts -->
+
+<div class="content">
+
+    <!-- Sidebar -->
+    <include file="Common:sidebar"/>
+    <!-- Sidebar ends -->
+
+    <!-- Main bar -->
+    <div class="mainbar">
+
+        <!-- Page heading -->
+        <div class="page-head">
+            <!-- Page heading -->
+            <h2 class="pull-left">添加商品分类
+                <!-- page meta -->
+                <span class="page-meta">Something Change Here</span>
+            </h2>
+
+
+            <!-- Breadcrumb -->
+            <div class="bread-crumb pull-right">
+                <a href="index.html"><i class="icon-home"></i> Home</a>
+                <!-- Divider -->
+                <span class="divider">/</span>
+                <a href="#" class="bread-current">forms</a>
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+        <!-- Page heading ends -->
+
+        <!-- Matter -->
+
+        <div class="matter">
+            <div class="container">
+
+                <div class="row">
+
+                    <div class="col-md-12">
+
+
+                        <div class="widget wgreen">
+
+                            <div class="widget-head">
+                                <div class="pull-left">商品添加</div>
+                                <div class="widget-icons pull-right">
+                                    <a href="#" class="wminimize"><i class="icon-chevron-up"></i></a>
+                                    <a href="#" class="wclose"><i class="icon-remove"></i></a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+
+                            <div class="widget-content">
+                                <div class="padd">
+                                    <!-- Form starts.  -->
+                                    <form class="form-horizontal" id="formid" role="form" method="post"
+                                          onsubmit="checkUser();" action="__URL__/handle" enctype='multipart/form-data'>
+                                        <div class="form-group">
+                                            <label class="col-lg-4 control-label">分类名称</label>
+                                            <div class="col-lg-8">
+                                                <input type="text" class="form-control" id="title" name="type_name"
+                                                       placeholder="分类名称" value="{$info.type_name}">
+                                                <input type="hidden" name="type_id" value="{$info.type_id}">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="col-lg-4 control-label">排序ID</label>
+                                            <div class="col-lg-8">
+                                                <input type="text" class="form-control" id="orderby_id" name="orderby_id"
+                                                       placeholder="排序ID" value="{$info.orderby_id}">
+                                            </div>
+                                        </div>
+                                        <hr/>
+                                        <div class="form-group">
+                                            <div class="col-lg-offset-1 col-lg-9">
+                                                <z></z>
+                                                <input type="button" class="btn btn-success" value="保存"
+                                                       name="display" onclick="checksubmit()">
+                                                <button type="submit" class="btn btn-default" onclick="history.back()">
+                                                    取消
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="widget-foot">
+                                <!-- Footer goes here -->
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Matter ends -->
+
+    </div>
+
+    <!-- Mainbar ends -->
+    <div class="clearfix"></div>
+
+</div>
+<!-- Content ends -->
+
+<!-- Footer starts -->
+<include file="Common:footer"/>
+<!-- Footer ends -->
+
+
+<script>
+    function checksubmit() {
+//        var category = document.getElementById("category").value;
+        var title = document.getElementById("title").value;
+        var order = document.getElementById("orderby_id").value;
+//        if (category == "") {
+//            alert("请选择商品类别");
+//            return false;
+//        }
+        if (order == "") {
+            alert("排序ID不能为空");
+            return false;
+        }
+        if (title == "") {
+            alert("分类名称不能为空");
+            return false;
+        }
+        document.getElementById("formid").submit();
+    }
+</script>
+
+
+</body>
+</html>
