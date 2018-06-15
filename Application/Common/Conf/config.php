@@ -3,7 +3,7 @@ return array(
 	//'配置项'=>'配置值'
 	'DEFAULT_MODULE'=>'Admin',
 //	'DEFAULT_CONTROLLER'    =>  'Article', // 默认控制器名称
-    'URL_MODEL' => 2,
+//    'URL_MODEL' => 2,
 
     'TMPL_PARSE_STRING' => array(
         '__PUBLIC__' => __ROOT__ . '/Public',
