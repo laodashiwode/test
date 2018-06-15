@@ -267,7 +267,7 @@
                     ndiv.setAttribute("num", upnum);
                     var closeLogo = '<i class="close-img" id="cd4"><img src="__CSS__/images/colse.png" alt=""><input type="hidden" name="turn_img[]" value="' + response + '"></i>';
                     ndiv.innerHTML = imgstr + closeLogo;
-//
+                    console.log(imgstr);
                     ndiv.className = "img-div";
                     div.before(ndiv);
                 }).fail(function (data) {

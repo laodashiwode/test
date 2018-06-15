@@ -2,8 +2,16 @@
 namespace Common\Controller;
 use Think\Controller;
 class CommonController extends Controller {
-
-
+	public function __construct(){
+		parent::__construct();
+		$row=session('admin');
+		if(!$row){
+			echo "<meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\" />";
+			echo "你没有权利访问此页面";
+			redirect(U('Login/login'));
+			exit();
+		}
+	}
     public function ueditup(){
     	header("Content-Type: text/html; charset=utf-8");
     	$editconfig = json_decode(preg_replace("/\/\*[\s\S]+?\*\//", "", file_get_contents(COMMON_PATH."Conf/ueditconfig.json")), true);
