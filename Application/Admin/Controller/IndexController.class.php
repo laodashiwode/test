@@ -22,7 +22,7 @@ class IndexController extends CommonController {
 			'magic_quotes_runtime'=>(1===get_magic_quotes_runtime())?'YES':'NO',
 		);
 
-		
+        dump(123);
 		$this->assign('info',$info);
 		$this->display();
 	}
