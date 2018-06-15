@@ -123,44 +123,44 @@ function my_encrypt($string,$operation,$key='')
 *
 * @return API results.
 */
-function do_curl($url, $method, $params='', $protocol='http', $enc_type=PHP_QUERY_RFC1738, $timeout=10)
-{
-    $ch = curl_init();
-    if (is_array($params)) {
-        $query_string = http_build_query($params,'','',$enc_type);
-    }
-    else {
-        if ($enc_type===false) {
-            $query_string = $params;
-        }else{
-            $query_string = $enc_type===PHP_QUERY_RFC3986 ? rawurlencode($params) : urlencode($params);
-        }
-    }
-    if (strtoupper($method)==='POST') {
-        curl_setopt($ch, CURLOPT_URL, $url); //请求地址
-        curl_setopt($ch, CURLOPT_POST, true); //发送POST请求
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $query_string); //通过POST发送的数据
-    }
-    else {
-        curl_setopt(self::$ch, CURLOPT_URL, "$url?$query_string");   //请求地址
-    }
-    curl_setopt($ch, CURLOPT_HEADER, false); //关闭头文件信息输出
-    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); //以文件流的形式返回获取的数据
-    curl_setopt($ch, CURLOPT_TIMEOUT, $timeout); //允许curl执行的最大秒数
-    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5); //发起连接前的最大等待时间
-    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:')); //设置HTTP头字段的数组
-    if ($protocol==='https') {
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
-    }
-    $result = curl_exec($ch);   //执行一个curl会话
-    //$errno = curl_errno($ch);
-    //if ($errno) $result = $errno;
-    $errstr = curl_error($ch); //返回一个包含当前会话错误信息的字符串
-    if ($errstr) $result = $errstr;
-    curl_close($ch);
-    return $result;
-}
+//function do_curl($url, $method, $params='', $protocol='http', $enc_type=PHP_QUERY_RFC1738, $timeout=10)
+//{
+//    $ch = curl_init();
+//    if (is_array($params)) {
+//        $query_string = http_build_query($params,'','',$enc_type);
+//    }
+//    else {
+//        if ($enc_type===false) {
+//            $query_string = $params;
+//        }else{
+//            $query_string = $enc_type===PHP_QUERY_RFC3986 ? rawurlencode($params) : urlencode($params);
+//        }
+//    }
+//    if (strtoupper($method)==='POST') {
+//        curl_setopt($ch, CURLOPT_URL, $url); //请求地址
+//        curl_setopt($ch, CURLOPT_POST, true); //发送POST请求
+//        curl_setopt($ch, CURLOPT_POSTFIELDS, $query_string); //通过POST发送的数据
+//    }
+//    else {
+//        curl_setopt(self::$ch, CURLOPT_URL, "$url?$query_string");   //请求地址
+//    }
+//    curl_setopt($ch, CURLOPT_HEADER, false); //关闭头文件信息输出
+//    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true); //以文件流的形式返回获取的数据
+//    curl_setopt($ch, CURLOPT_TIMEOUT, $timeout); //允许curl执行的最大秒数
+//    curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 5); //发起连接前的最大等待时间
+//    curl_setopt($ch, CURLOPT_HTTPHEADER, array('Expect:')); //设置HTTP头字段的数组
+//    if ($protocol==='https') {
+//        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+//        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+//    }
+//    $result = curl_exec($ch);   //执行一个curl会话
+//    //$errno = curl_errno($ch);
+//    //if ($errno) $result = $errno;
+//    $errstr = curl_error($ch); //返回一个包含当前会话错误信息的字符串
+//    if ($errstr) $result = $errstr;
+//    curl_close($ch);
+//    return $result;
+//}
 
 /**
  * 重构数组索引
