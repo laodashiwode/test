@@ -21,7 +21,8 @@ class IndexController extends CommonController {
 			'magic_quotes_gpc'=>(1===get_magic_quotes_gpc())?'YES':'NO',
 			'magic_quotes_runtime'=>(1===get_magic_quotes_runtime())?'YES':'NO',
 		);
-        
+
+		
 		$this->assign('info',$info);
 		$this->display();
 	}
