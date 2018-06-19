@@ -1,3 +1,4 @@
 /Application/Runtime
 /.idea/*.xml
 /.idea/*.iml
+/Application/Common/conf
