@@ -7,7 +7,6 @@ class LoginController extends Controller
 {
     public function login()
     {
-        dump('123');die();
         if (IS_POST) {
             $admin = M("admin");
             $map['admin'] = I("post.admin");
