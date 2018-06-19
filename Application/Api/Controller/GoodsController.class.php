@@ -1,7 +1,9 @@
 <?php
 namespace Api\Controller;
 use Common\Controller\CommonController;
-class GoodsController extends CommonController {
+use Think\Controller;
+
+class GoodsController extends Controller {
 
 	public function index(){
 	    $data = I();
