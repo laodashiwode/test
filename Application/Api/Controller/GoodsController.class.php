@@ -18,10 +18,14 @@ class GoodsController extends Controller {
         $show       = $Page->show();// 分页显示输出
         // 进行分页数据查询 注意limit方法的参数要使用Page类的属性
         $list = $goods->where('type_id ='.$type_id)->limit($Page->firstRow.','.$Page->listRows)->select();
-        if(count($list)==0){
+        
+        if(!$list){
+            returnjson('400','fail','数据查询失败');
+        }else if(count($list)==0){
             returnjson('200','success','暂无相关数据');
+        }else{
+            returnjson('200','success',$list);
         }
-        returnjson('200','success',$list);
 	}
 
 
