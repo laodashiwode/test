@@ -20,7 +20,7 @@ class GoodsController extends Controller {
         $list = $goods->where('type_id ='.$type_id)->limit($Page->firstRow.','.$Page->listRows)->select();
         
         if(!$list){
-            returnjson('400','fail','数据查询失败');
+            returnjson('400','fail','数据查询失败,暂无相关数据');
         }else{
             returnjson('200','success',$list);
         }
